@@ -1,0 +1,100 @@
+
+> g3-web@0.1.0 lint
+> eslint
+
+
+D:\Clofy Tech\G3_Worldwide\g3-web\app\contact\page.tsx
+  167:66  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\Clofy Tech\G3_Worldwide\g3-web\app\innovation\page.tsx
+    7:10  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+   92:11  warning  'y' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  114:51  warning  'index' is defined but never used       @typescript-eslint/no-unused-vars
+
+D:\Clofy Tech\G3_Worldwide\g3-web\app\services\page.tsx
+    7:10  warning  'ArrowRight' is defined but never used                           @typescript-eslint/no-unused-vars
+  209:49  warning  'index' is defined but never used                                @typescript-eslint/no-unused-vars
+  281:57  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  281:67  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\layout\footer.tsx
+  5:50  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\sections\about.tsx
+   6:8   warning  'Image' is defined but never used                                @typescript-eslint/no-unused-vars
+  34:82  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\sections\contact.tsx
+  21:18  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\sections\core-capabilities.tsx
+  254:32  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\sections\cta.tsx
+  150:36  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\sections\hero.tsx
+  104:38  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\sections\hero.tsx:104:38
+  102 |                         className="absolute w-1 h-1 bg-primary/30 rounded-full"
+  103 |                         style={{
+> 104 |                             left: `${Math.random() * 100}%`,
+      |                                      ^^^^^^^^^^^^^ Cannot call impure function
+  105 |                             top: `${Math.random() * 100}%`,
+  106 |                         }}
+  107 |                         animate={{  react-hooks/purity
+  105:37  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\sections\hero.tsx:105:37
+  103 |                         style={{
+  104 |                             left: `${Math.random() * 100}%`,
+> 105 |                             top: `${Math.random() * 100}%`,
+      |                                     ^^^^^^^^^^^^^ Cannot call impure function
+  106 |                         }}
+  107 |                         animate={{
+  108 |                             y: [0, -30, 0],                                       react-hooks/purity
+  112:43  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\sections\hero.tsx:112:43
+  110 |                         }}
+  111 |                         transition={{
+> 112 |                             duration: 3 + Math.random() * 4,
+      |                                           ^^^^^^^^^^^^^ Cannot call impure function
+  113 |                             repeat: Infinity,
+  114 |                             delay: Math.random() * 2,
+  115 |                         }}                                        react-hooks/purity
+  114:36  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\sections\hero.tsx:114:36
+  112 |                             duration: 3 + Math.random() * 4,
+  113 |                             repeat: Infinity,
+> 114 |                             delay: Math.random() * 2,
+      |                                    ^^^^^^^^^^^^^ Cannot call impure function
+  115 |                         }}
+  116 |                     />
+  117 |                 ))}                                                                     react-hooks/purity
+  257:38  warning  'index' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\sections\platform-showcase.tsx
+  53:35  warning  'index' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\sections\testimonials.tsx
+  102:37  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  102:57  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\Clofy Tech\G3_Worldwide\g3-web\components\sections\testing-grounds.tsx
+  67:38   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  67:141  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  99:40   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+✖ 25 problems (16 errors, 9 warnings)
+
