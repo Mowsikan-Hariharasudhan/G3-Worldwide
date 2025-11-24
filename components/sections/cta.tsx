@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
 import { useRef, MouseEvent } from "react";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 
 export function CTA() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -143,12 +144,9 @@ export function CTA() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 }}
-                                className="flex flex-col sm:flex-row justify-center gap-4"
+                                className="flex flex-col sm:flex-row justify-center gap-6"
                             >
-                                <motion.div
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
+                                <MagneticButton>
                                     <Button size="lg" variant="glow" className="text-lg px-8 h-14 group relative" asChild>
                                         <a href="/contact">
                                             <span className="relative z-10 flex items-center">
@@ -163,12 +161,9 @@ export function CTA() {
                                             />
                                         </a>
                                     </Button>
-                                </motion.div>
+                                </MagneticButton>
 
-                                <motion.div
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
+                                <MagneticButton>
                                     <Button
                                         size="lg"
                                         variant="outline"
@@ -188,7 +183,7 @@ export function CTA() {
                                             />
                                         </a>
                                     </Button>
-                                </motion.div>
+                                </MagneticButton>
                             </motion.div>
 
                             {/* Trust indicators */}
@@ -224,4 +219,3 @@ export function CTA() {
         </section>
     );
 }
-

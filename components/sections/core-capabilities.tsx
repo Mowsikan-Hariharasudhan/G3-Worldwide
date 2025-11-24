@@ -3,7 +3,7 @@
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Cloud, Brain, Layout, Lightbulb } from "lucide-react";
+import { Cloud, Brain, Layout, Lightbulb, Megaphone } from "lucide-react";
 import { useState, useRef, MouseEvent } from "react";
 
 const capabilities = [
@@ -28,24 +28,14 @@ const capabilities = [
         gradient: "from-secondary to-purple-400",
     },
     {
-        icon: Layout,
-        title: "Purpose-Built Platforms",
-        description: "TablaOps & StealthOps — cloud-native platforms designed for restaurant and hotel operations.",
-        features: ["TablaOps (Restaurants)", "StealthOps (Hotels)", "Custom integrations", "Mobile apps"],
-        color: "text-accent",
-        bg: "bg-accent/10",
-        border: "border-accent/20",
-        gradient: "from-accent to-teal-400",
-    },
-    {
-        icon: Lightbulb,
-        title: "Innovation Hub",
-        description: "Where R&D and automation libraries produce practical outcomes: reduced costs and faster launches.",
-        features: ["Rapid prototyping", "6-8 week pilots", "Measurable KPIs", "Production rollout"],
-        color: "text-teal-400",
-        bg: "bg-teal-400/10",
-        border: "border-teal-400/20",
-        gradient: "from-teal-400 to-green-400",
+        icon: Megaphone,
+        title: "Digital Marketing",
+        description: "Data-driven marketing strategies that amplify brand presence and drive measurable growth across digital channels.",
+        features: ["SEO & Content Strategy", "Social Media Management", "Paid Advertising (PPC)", "Brand Development"],
+        color: "text-pink-400",
+        bg: "bg-pink-400/10",
+        border: "border-pink-400/20",
+        gradient: "from-pink-400 to-rose-400",
     },
 ];
 
@@ -176,13 +166,13 @@ function CapabilityCard({ cap, index }: { cap: typeof capabilities[0]; index: nu
 
                     {/* Title */}
                     <motion.h3
-                        className="text-xl font-bold mb-3 text-foreground break-words hyphens-auto group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-foreground group-hover:to-primary transition-all duration-300"
+                        className="text-base font-bold mb-3 text-foreground leading-tight transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-foreground group-hover:to-primary"
                     >
                         {cap.title}
                     </motion.h3>
 
                     {/* Description */}
-                    <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+                    <p className="text-muted-foreground text-xs mb-6 leading-relaxed">
                         {cap.description}
                     </p>
 
@@ -231,10 +221,12 @@ export function CoreCapabilities() {
                     description="We build the technology that powers modern hospitality operations at scale."
                 />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {capabilities.map((cap, index) => (
-                        <CapabilityCard key={cap.title} cap={cap} index={index} />
-                    ))}
+                <div className="max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {capabilities.map((cap, index) => (
+                            <CapabilityCard key={cap.title} cap={cap} index={index} />
+                        ))}
+                    </div>
                 </div>
 
                 {/* Bottom CTA hint */}

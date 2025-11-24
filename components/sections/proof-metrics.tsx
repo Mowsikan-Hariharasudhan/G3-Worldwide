@@ -57,13 +57,16 @@ export function ProofMetrics() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="text-center group"
+                            className="relative p-6 rounded-2xl border border-border bg-card/50 backdrop-blur-sm group hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                         >
-                            <div className="text-4xl md:text-6xl font-bold font-display text-foreground mb-2 group-hover:scale-110 transition-transform duration-300">
-                                <Counter value={metric.value} suffix={metric.suffix} />
-                            </div>
-                            <div className="text-sm md:text-base text-muted-foreground font-medium uppercase tracking-wide group-hover:text-primary transition-colors">
-                                {metric.label}
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                            <div className="relative z-10 text-center">
+                                <div className="text-4xl md:text-5xl font-bold font-display text-foreground mb-2 group-hover:scale-110 transition-transform duration-300">
+                                    <Counter value={metric.value} suffix={metric.suffix} />
+                                </div>
+                                <div className="text-sm text-muted-foreground font-medium uppercase tracking-wide group-hover:text-primary transition-colors">
+                                    {metric.label}
+                                </div>
                             </div>
                         </motion.div>
                     ))}

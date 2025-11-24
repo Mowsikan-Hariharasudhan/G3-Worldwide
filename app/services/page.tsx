@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { CheckCircle2, Cloud, Brain, BarChart3, Code2, Lightbulb, ArrowUpRight } from "lucide-react";
+import { CheckCircle2, Cloud, Brain, BarChart3, Code2, Lightbulb, Megaphone, ArrowUpRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
@@ -128,6 +128,30 @@ const services = [
         color: "text-green-400",
         bg: "bg-green-400/10",
         border: "border-green-400/20"
+    },
+    {
+        id: "digital-marketing",
+        icon: Megaphone,
+        title: "Digital Marketing & Brand Growth",
+        description: "Strategic digital marketing services that drive brand awareness, customer acquisition, and revenue growth. From SEO to social media management, we create data-driven campaigns that deliver measurable results for hospitality brands.",
+        capabilities: [
+            "Search Engine Optimization (SEO)",
+            "Content strategy & creation",
+            "Social media management & advertising",
+            "Pay-per-click advertising (Google Ads, Meta)",
+            "Email marketing & automation",
+            "Brand development & positioning",
+            "Influencer partnerships & PR",
+            "Analytics & performance tracking",
+        ],
+        useCases: [
+            "SEO campaign increases organic traffic by 150% and drives 40% more reservations",
+            "Social media strategy builds engaged community of 50K+ followers",
+            "Targeted PPC campaigns achieve 5x ROAS for catering bookings",
+        ],
+        color: "text-pink-400",
+        bg: "bg-pink-400/10",
+        border: "border-pink-400/20"
     },
 ];
 

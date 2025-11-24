@@ -22,7 +22,7 @@ export function Footer() {
             {/* Parallax Watermark */}
             <motion.div
                 style={{ y, opacity }}
-                className="absolute top-0 left-1/2 -translate-x-1/2 text-[18rem] font-bold font-display text-white pointer-events-none whitespace-nowrap select-none z-0"
+                className="absolute top-12 left-1/2 -translate-x-1/2 text-[12rem] font-bold font-display text-white pointer-events-none whitespace-nowrap select-none z-0"
             >
                 G3 WORLDWIDE
             </motion.div>
@@ -47,7 +47,7 @@ export function Footer() {
                                 />
                             </div>
                             <span className="text-2xl font-bold font-display text-white">
-                                G3 WORLDWIDE
+                                G3 Worlwide
                             </span>
                         </Link>
                         <p className="text-white/70 text-base mb-8 leading-relaxed">

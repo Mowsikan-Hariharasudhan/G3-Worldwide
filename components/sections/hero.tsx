@@ -7,6 +7,8 @@ import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
+import { TextReveal } from "@/components/ui/text-reveal";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 
 function FloatingParticles() {
     const [particles, setParticles] = useState<{ left: string; top: string; duration: number; delay: number }[]>([]);
@@ -54,35 +56,6 @@ export function Hero() {
     const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
     const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
-    // Staggered animation variants for words
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.08,
-                delayChildren: 0.1,
-            },
-        },
-    };
-
-    const wordVariants = {
-        hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
-        visible: {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            transition: {
-                type: "spring" as const,
-                damping: 12,
-                stiffness: 100,
-            },
-        },
-    };
-
-    const headlineWords = "Technology That Powers".split(" ");
-    const gradientWords = "Hospitality at Scale".split(" ");
-
     return (
         <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             {/* Enhanced Background Effects */}
@@ -100,7 +73,7 @@ export function Hero() {
                         repeat: Infinity,
                         ease: "easeInOut",
                     }}
-                    className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[128px]"
+                    className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] opacity-50"
                 />
                 <motion.div
                     animate={{
@@ -112,19 +85,7 @@ export function Hero() {
                         repeat: Infinity,
                         ease: "easeInOut",
                     }}
-                    className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[128px]"
-                />
-                <motion.div
-                    animate={{
-                        x: [0, -50, 0],
-                        y: [0, 100, 0],
-                    }}
-                    transition={{
-                        duration: 22,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                    className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[128px]"
+                    className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary/20 rounded-full blur-[120px] opacity-50"
                 />
 
                 {/* Grid pattern */}
@@ -163,40 +124,10 @@ export function Hero() {
                         Enterprise Technology for Hospitality
                     </motion.div>
 
-                    {/* Animated headline with staggered words */}
-                    <div className="text-4xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight mb-8 leading-tight">
-                        <motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            animate="visible"
-                            className="flex flex-wrap justify-center gap-x-4 gap-y-2 mb-2"
-                        >
-                            {headlineWords.map((word, index) => (
-                                <motion.span key={index} variants={wordVariants}>
-                                    {word}
-                                </motion.span>
-                            ))}
-                        </motion.div>
-                        <motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            animate="visible"
-                            className="flex flex-wrap justify-center gap-x-4 gap-y-2"
-                        >
-                            {gradientWords.map((word, index) => (
-                                <motion.span
-                                    key={index}
-                                    variants={wordVariants}
-                                    className="gradient-text animate-gradient-shift"
-                                    whileHover={{
-                                        scale: 1.05,
-                                        transition: { type: "spring", stiffness: 300 },
-                                    }}
-                                >
-                                    {word}
-                                </motion.span>
-                            ))}
-                        </motion.div>
+                    {/* Animated headline with TextReveal */}
+                    <div className="text-4xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight mb-8 leading-tight flex flex-col items-center">
+                        <TextReveal text="Technology That Powers" className="justify-center mb-2" delay={0.2} />
+                        <TextReveal text="Hospitality at Scale" className="justify-center gradient-text animate-gradient-shift" delay={0.5} />
                     </div>
 
                     {/* Enhanced description */}
@@ -207,55 +138,57 @@ export function Hero() {
                         className="text-lg md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed text-pretty"
                     >
                         From cloud infrastructure to AI-driven automation, G3 Worldwide engineers systems that enable{" "}
-                        <motion.span
-                            className="text-foreground font-semibold bg-gradient-to-r from-orange-400 to-red-400 text-transparent bg-clip-text"
+                        <motion.a
+                            href="https://www.tablacuisine.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-foreground font-semibold bg-gradient-to-r from-orange-400 to-red-400 text-transparent bg-clip-text hover:from-orange-500 hover:to-red-500 transition-all"
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 300 }}
                         >
                             Tabla Indian Restaurant
-                        </motion.span>{" "}
+                        </motion.a>{" "}
                         and{" "}
-                        <motion.span
-                            className="text-foreground font-semibold bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text"
+                        <motion.a
+                            href="https://www.stealthmanage.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-foreground font-semibold bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text hover:from-blue-500 hover:to-cyan-500 transition-all"
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 300 }}
                         >
                             Stealth Management Group
-                        </motion.span>{" "}
+                        </motion.a>{" "}
                         to scale operations exponentially.
                     </motion.p>
 
-                    {/* Enhanced CTAs with hover effects */}
+                    {/* Enhanced CTAs with MagneticButton */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.8 }}
-                        className="flex flex-col sm:flex-row gap-4 items-center justify-center w-full sm:w-auto"
+                        className="flex flex-col sm:flex-row gap-6 items-center justify-center w-full sm:w-auto"
                     >
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <Button size="lg" variant="default" className="group relative overflow-hidden" asChild>
+                        <MagneticButton>
+                            <Button size="lg" variant="default" className="group relative overflow-hidden px-8 h-14 text-lg" asChild>
                                 <Link href="/innovation">
                                     <span className="relative z-10 flex items-center">
                                         Explore Our Platforms
-                                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                        <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                                     </span>
                                 </Link>
                             </Button>
-                        </motion.div>
+                        </MagneticButton>
 
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <Button size="lg" variant="outline" className="group" asChild>
+                        <MagneticButton>
+                            <Button size="lg" variant="outline" className="group relative overflow-hidden px-8 h-14 text-lg" asChild>
                                 <Link href="/contact">
-                                    Schedule Discovery Call
+                                    <span className="relative z-10 flex items-center">
+                                        Schedule Discovery
+                                    </span>
                                 </Link>
                             </Button>
-                        </motion.div>
+                        </MagneticButton>
                     </motion.div>
 
                     {/* Trust indicators */}

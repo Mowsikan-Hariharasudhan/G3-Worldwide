@@ -46,24 +46,7 @@ const platforms = [
         gradient: "from-blue-500/20 to-cyan-500/20",
         image: "/stealthops-dashboard.jpg",
     },
-    {
-        id: "ai-command",
-        title: "AI Command Center",
-        subtitle: "Centralized Intelligence Hub",
-        description: "The central brain powering operations. Conversational AI, automation orchestrators, and executive intelligence that surface insights and execute actions automatically.",
-        modules: [
-            "Conversational Agents: Guest chatbots, internal support bots",
-            "Automation Orchestrators: Workflow triggers, system integration",
-            "SOP Automation: Procedure execution and monitoring",
-            "Generative Content: Marketing copy, internal comms",
-            "Executive Dashboards: Real-time KPIs, anomaly alerts",
-            "Knowledge Base: AI-powered search",
-        ],
-        builtFor: ["OpenAI, Azure AI, custom ML models", "Natural language processing", "Predictive analytics"],
-        cta: "Explore AI Capabilities",
-        gradient: "from-purple-500/20 to-pink-500/20",
-        image: "/ai-command-center.png",
-    },
+   
 ];
 
 const rdProjects = [

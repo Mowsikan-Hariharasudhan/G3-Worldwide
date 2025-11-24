@@ -5,6 +5,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { motion } from "framer-motion";
 import { Building2, Award, TrendingUp, Users } from "lucide-react";
 import Link from "next/link";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 const partners = [
     {
@@ -13,7 +14,7 @@ const partners = [
         description: "Enterprise restaurant operations platform",
         metric: "50+ locations",
         metricDetail: "Operating across North America with TablaOps platform",
-        link: "/innovation#tablaops",
+        link: "https://www.tablacuisine.com/",
         color: "from-primary to-cyan-400",
     },
     {
@@ -22,7 +23,7 @@ const partners = [
         description: "Boutique hotel technology infrastructure",
         metric: "15+ properties",
         metricDetail: "Multi-property portfolio managed via StealthOps PMS",
-        link: "/innovation#stealthops",
+        link: "https://www.stealthmanage.com/",
         color: "from-secondary to-purple-400",
     },
     {
@@ -34,15 +35,7 @@ const partners = [
         link: "/services",
         color: "from-accent to-teal-400",
     },
-    {
-        name: "AWS",
-        logo: "🚀",
-        description: "Multi-cloud deployment platform",
-        metric: "Global scale",
-        metricDetail: "Multi-region deployment across AWS infrastructure",
-        link: "/services",
-        color: "from-orange-500 to-yellow-400",
-    },
+
 ];
 
 const stats = [
@@ -87,68 +80,70 @@ export function Partners() {
                 />
 
                 {/* Partners Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-                    {partners.map((partner, index) => (
-                        <motion.div
-                            key={partner.name}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="card-premium group relative p-8 text-center flex flex-col h-full"
-                        >
-                            {/* Gradient glow overlay */}
-                            <div className={`absolute inset-0 bg-gradient-to-br ${partner.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-500`} />
+                <div className="max-w-6xl mx-auto mb-20">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {partners.map((partner, index) => (
+                            <motion.div
+                                key={partner.name}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className="h-full"
+                            >
+                                <SpotlightCard className="p-8 h-full bg-card/50 backdrop-blur-sm hover:shadow-xl transition-shadow duration-300">
+                                    {/* Gradient glow overlay */}
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${partner.color} opacity-0 group-hover/spotlight:opacity-5 rounded-xl transition-opacity duration-500`} />
 
-                            <div className="relative z-10 flex flex-col h-full">
-                                {/* Logo */}
-                                <motion.div
-                                    whileHover={{ scale: 1.1, rotate: 5 }}
-                                    transition={{ type: "spring", stiffness: 300 }}
-                                    className="text-6xl mb-6 inline-block"
-                                >
-                                    {partner.logo}
-                                </motion.div>
-
-                                {/* Partner Name */}
-                                <h3 className="text-xl font-bold mb-2 text-foreground min-h-[3.5rem] flex items-center justify-center px-2 leading-tight transition-all duration-300 group-hover:text-primary">
-                                    {partner.name}
-                                </h3>
-
-                                {/* Description */}
-                                <p className="text-sm text-muted-foreground mb-6 leading-relaxed flex-grow">
-                                    {partner.description}
-                                </p>
-
-                                {/* Interactive Metric Badge - now clickable with tooltip */}
-                                <div className="mt-auto group/badge relative">
-                                    <Link href={partner.link} className="block">
+                                    <div className="relative z-10 flex flex-col h-full">
+                                        {/* Logo */}
                                         <motion.div
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            className={`inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r ${partner.color} bg-opacity-10 backdrop-blur-sm border border-white/10 cursor-pointer transition-all duration-300 hover:border-white/30 hover:shadow-lg`}
+                                            whileHover={{ scale: 1.1, rotate: 5 }}
+                                            transition={{ type: "spring", stiffness: 300 }}
+                                            className="text-6xl mb-6 inline-block"
                                         >
-                                            <span className="text-sm font-semibold text-foreground">
-                                                {partner.metric}
-                                            </span>
-                                            <motion.svg
-                                                whileHover={{ x: 2 }}
-                                                className="w-4 h-4 ml-2 opacity-70"
-                                                fill="none"
-                                                strokeWidth="2"
-                                                stroke="currentColor"
-                                                viewBox="0 0 24 24"
-                                            >
-                                                <path d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                                            </motion.svg>
+                                            {partner.logo}
                                         </motion.div>
-                                    </Link>
 
-                                    
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                                        {/* Partner Name */}
+                                        <h3 className="text-xl font-bold mb-2 text-foreground min-h-[3.5rem] flex items-center justify-center px-2 leading-tight transition-all duration-300 group-hover/spotlight:text-primary">
+                                            {partner.name}
+                                        </h3>
+
+                                        {/* Description */}
+                                        <p className="text-sm text-muted-foreground mb-6 leading-relaxed flex-grow">
+                                            {partner.description}
+                                        </p>
+
+                                        {/* Interactive Metric Badge */}
+                                        <div className="mt-auto group/badge relative">
+                                            <Link href={partner.link} className="block">
+                                                <motion.div
+                                                    whileHover={{ scale: 1.05 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                    className={`inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r ${partner.color} bg-opacity-10 backdrop-blur-sm border border-border cursor-pointer transition-all duration-300 hover:border-primary/30 hover:shadow-lg`}
+                                                >
+                                                    <span className="text-sm font-semibold text-foreground">
+                                                        {partner.metric}
+                                                    </span>
+                                                    <motion.svg
+                                                        whileHover={{ x: 2 }}
+                                                        className="w-4 h-4 ml-2 opacity-70"
+                                                        fill="none"
+                                                        strokeWidth="2"
+                                                        stroke="currentColor"
+                                                        viewBox="0 0 24 24"
+                                                    >
+                                                        <path d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                                    </motion.svg>
+                                                </motion.div>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </SpotlightCard>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Stats Section */}

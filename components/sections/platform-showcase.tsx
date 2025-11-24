@@ -21,6 +21,7 @@ const platforms = [
         bgAccent: "bg-orange-500",
         image: "/tablaops-dashboard.jpg",
         icon: Layers,
+        link: "https://www.tablacuisine.com/",
     },
     {
         id: "stealthops",
@@ -34,6 +35,7 @@ const platforms = [
         bgAccent: "bg-blue-500",
         image: "/stealthops-dashboard.jpg",
         icon: BarChart3,
+        link: "https://www.stealthmanage.com/",
     },
 
 ];
@@ -103,7 +105,7 @@ function PlatformCard({
                         </div>
 
                         <Button size="lg" variant="outline" className={`group border-primary/20 hover:bg-primary/5`} asChild>
-                            <a href={`/innovation#${platform.id}`}>
+                            <a href={platform.link} target="_blank" rel="noopener noreferrer">
                                 Explore {platform.title}
                                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </a>
