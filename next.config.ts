@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/G3-Worlwide",
+  basePath: "/G3-Worldwide",
   images: {
     unoptimized: true,
   },
